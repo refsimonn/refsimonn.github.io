@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hobbies - My Personal Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background: url('northern-lights.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Glass morphism overlay for better readability */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(1px);
+            z-index: -1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            border: 2px solid transparent;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Main content */
+        .main-content {
+            padding-top: 120px;
+            padding-bottom: 50px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+            -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.7);
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .hobby-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out calc(0.4s + var(--delay)) both;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .hobby-icon {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .hobby-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.7);
+        }
+
+        .hobby-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.6);
+            margin-bottom: 15px;
+        }
+
+        .hobby-details {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hobby-level {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .hobby-duration {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .nav-links a {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .hobbies-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .hobby-card {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .hobby-card {
+                padding: 25px;
+            }
+
+            .hobby-icon {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="hobbies.html" class="active">Hobbies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">My Hobbies</h1>
+            <p class="page-subtitle">Discover what I'm passionate about in my free time</p>
+
+            <div class="hobbies-grid">
+                <div class="hobby-card" style="--delay: 0s">
+                    <div class="hobby-icon">📸</div>
+                    <h3>Photography</h3>
+                    <p>
+                        Capturing moments and telling stories through the lens. I love exploring different 
+                        styles from landscape to portrait photography, always seeking that perfect shot 
+                        that conveys emotion and beauty.
+                    </p>
+                    <div class="hobby-details">
+                        <span class="hobby-level">Intermediate</span>
+                        <p class="hobby-duration">Practicing for 3+ years</p>
+                    </div>
+                </div>
+
+                <div class="hobby-card" style="--delay: 0.1s">
+                    <div class="hobby-icon">🎵</div>
+                    <h3>Music Production</h3>
+                    <p>
+                        Creating electronic music and experimenting with different sounds and beats. 
+                        From ambient soundscapes to energetic tracks, music is my way of expressing 
+                        creativity and emotions.
+                    </p>
+                    <div class="hobby-details">
+                        <span class="hobby-level">Advanced</span>
+                        <p class="hobby-duration">Composing for 5+ years</p>
+                    </div>
+                </div>
+
+                <div class="hobby-card" style="--delay: 0.2s">
+                    <div class="hobby-icon">🏃‍♂️</div>
+                    <h3>Running</h3>
+                    <p>
+                        Early morning runs help me clear my mind and stay physically fit. Whether it's 
+                        training for marathons or just enjoying a peaceful jog through nature, running 
+                        is my meditation in motion.
+                    </p>
+                    <div class="hobby-details">
+                        <span class="hobby-level">Enthusiast</span>
+                        <p class="hobby-duration">Running for 2+ years</p>
+                    </div>
+                </div>
+
+                <div class="hobby-card" style="--delay: 0.3s">
+                    <div class="hobby-icon">📚</div>
+                    <h3>Reading</h3>
+                    <p>
+                        Diving into worlds of science fiction, technology books, and personal development. 
+                        Reading expands my perspective and keeps me curious about the world around us. 
+                        Always have a book nearby!
+                    </p>
+                    <div class="hobby-details">
+                        <span class="hobby-level">Avid Reader</span>
+                        <p class="hobby-duration">Lifelong passion</p>
+                    </div>
+                </div>
+
+                <div class="hobby-card" style="--delay: 0.4s">
+                    <div class="hobby-icon">🎮</div>
+                    <h3>Gaming</h3>
+                    <p>
+                        Exploring virtual worlds and challenging myself with strategic games. From indie 
+                        puzzle games to epic RPGs, gaming is not just entertainment but also inspiration 
+                        for creative projects.
+                    </p>
+                    <div class="hobby-details">
+                        <span class="hobby-level">Casual Gamer</span>
+                        <p class="hobby-duration">Gaming since childhood</p>
+                    </div>
+                </div>
+
+                <div class="hobby-card" style="--delay: 0.5s">
+                    <div class="hobby-icon">🌱</div>
+                    <h3>Gardening</h3>
+                    <p>
+                        Growing plants and creating green spaces brings me peace and connection with nature. 
+                        From herbs to flowers, watching something grow from seed to full bloom is incredibly 
+                        rewarding and therapeutic.
+                    </p>
+                    <div class="hobby-details">
+                        <span class="hobby-level">Green Thumb</span>
+                        <p class="hobby-duration">Cultivating for 1+ year</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
