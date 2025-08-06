@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Hobbies</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: url('color drip.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      backdrop-filter: brightness(0.6);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 3px 3px 8px #000;
+    }
+
+    .hobby-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .hobby {
+      margin-bottom: 25px;
+    }
+
+    .hobby h2 {
+      font-size: 1.5rem;
+      color: #ffcc00;
+      text-shadow: 2px 2px 5px #000;
+      margin-bottom: 10px;
+    }
+
+    .hobby p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 30px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px #000;
+      transition: background-color 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #ffcc00;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Hobbies</h1>
+
+  <div class="hobby-container">
+    <div class="hobby">
+      <h2>Hiking</h2>
+      <p>
+        I enjoy immersing myself in nature and challenging my physical endurance. Hiking allows me to disconnect from technology, enjoy scenic views, and feel a sense of accomplishment with every step I take.
+      </p>
+    </div>
+
+    <div class="hobby">
+      <h2>Playing Mobile Games</h2>
+      <p>
+        Games like <strong>Call of Duty: Garena</strong> and <strong>Mobile Legends</strong> allow me to strategize, compete, and unwind with friends. They sharpen my reflexes, team coordination, and decision-making skills.
+      </p>
+    </div>
+
+    <div class="hobby">
+      <h2>Doing House Chores</h2>
+      <p>
+        I find household chores rewarding. Cleaning and organizing help me stay productive, reduce stress, and maintain a comfortable, healthy living environment.
+      </p>
+    </div>
+  </div>
+
+  <a href="index.html" class="back-button">← Back to Home</a>
+
+</body>
+</html>
