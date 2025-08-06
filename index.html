@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    body {
+      background: url('color drip.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      backdrop-filter: brightness(0.5);
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    nav {
+      position: absolute;
+      top: 30px;
+      right: 50px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-shadow: 2px 2px 5px #000;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    .content {
+      max-width: 700px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
+      transition: transform 0.5s ease;
+    }
+
+    .content:hover {
+      transform: scale(1.02);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 3px 3px 8px #000;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: static;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .content {
+        margin: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="about.html">About Me</a>
+    <a href="hobbies.html">Hobbies</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="content">
+    <h1>Welcome to My Portfolio</h1>
+    <p>
+      Hi, I'm a passionate individual who enjoys creative design, solving real-world problems, and expressing ideas through technology.
+      Explore this website to learn more about who I am, what I love to do, and how you can reach me!
+    </p>
+  </div>
+
+</body>
+</html>
