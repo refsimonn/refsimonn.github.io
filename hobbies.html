@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hobbies - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('northern-lights.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            text-shadow: 
+                -2px -2px 0 #000,
+                2px -2px 0 #000,
+                -2px 2px 0 #000,
+                2px 2px 0 #000,
+                0 0 10px rgba(0, 0, 0, 0.8);
+            letter-spacing: 2px;
+        }
+
+        .back-link {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            text-shadow: 
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+            margin-bottom: 2rem;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .hobby-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hobby-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00d4ff, #ff00ff, #00ff88);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .hobby-card:hover::before {
+            opacity: 1;
+        }
+
+        .hobby-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+            font-weight: 400;
+        }
+
+        .hobby-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            text-shadow: 
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+        }
+
+        .hobby-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+            text-shadow: 
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+        }
+
+        .hobby-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .hobby-tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-shadow: 
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+        }
+
+        @media (max-width: 768px) {
+            .hobbies-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hobby-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1>My Hobbies</h1>
+        </div>
+        
+        <div class="hobbies-grid">
+            <div class="hobby-card">
+                <span class="hobby-icon">🎨</span>
+                <h3>Digital Art & Design</h3>
+                <p>
+                    I love creating digital artwork and exploring various design techniques. 
+                    From vector graphics to digital painting, I enjoy expressing creativity 
+                    through visual mediums.
+                </p>
+                <div class="hobby-tags">
+                    <span class="hobby-tag">Photoshop</span>
+                    <span class="hobby-tag">Illustrator</span>
+                    <span class="hobby-tag">Digital Painting</span>
+                </div>
+            </div>
+            
+            <div class="hobby-card">
+                <span class="hobby-icon">📚</span>
+                <h3>Reading & Learning</h3>
+                <p>
+                    I'm an avid reader who enjoys diving into various genres - from science 
+                    fiction to non-fiction. I believe in continuous learning and expanding 
+                    my knowledge horizons.
+                </p>
+                <div class="hobby-tags">
+                    <span class="hobby-tag">Science Fiction</span>
+                    <span class="hobby-tag">Technology</span>
+                    <span class="hobby-tag">Philosophy</span>
+                </div>
+            </div>
+            
+            <div class="hobby-card">
+                <span class="hobby-icon">🏃‍♂️</span>
+                <h3>Fitness & Wellness</h3>
+                <p>
+                    Staying active is important to me. I enjoy various forms of exercise 
+                    including running, yoga, and strength training. It helps me maintain 
+                    both physical and mental well-being.
+                </p>
+                <div class="hobby-tags">
+                    <span class="hobby-tag">Running</span>
+                    <span class="hobby-tag">Yoga</span>
+                    <span class="hobby-tag">Strength Training</span>
+                </div>
+            </div>
+            
+            <div class="hobby-card">
+                <span class="hobby-icon">🎵</span>
+                <h3>Music & Audio</h3>
+                <p>
+                    Music is a huge part of my life. I enjoy discovering new artists, 
+                    playing instruments, and sometimes experimenting with music production 
+                    and sound design.
+                </p>
+                <div class="hobby-tags">
+                    <span class="hobby-tag">Guitar</span>
+                    <span class="hobby-tag">Electronic</span>
+                    <span class="hobby-tag">Sound Design</span>
+                </div>
+            </div>
+            
+            <div class="hobby-card">
+                <span class="hobby-icon">🌍</span>
+                <h3>Travel & Photography</h3>
+                <p>
+                    Exploring new places and capturing moments through photography is 
+                    something I'm passionate about. Every journey offers new perspectives 
+                    and unforgettable experiences.
+                </p>
+                <div class="hobby-tags">
+                    <span class="hobby-tag">Landscape</span>
+                    <span class="hobby-tag">Street Photography</span>
+                    <span class="hobby-tag">Adventure</span>
+                </div>
+            </div>
+            
+            <div class="hobby-card">
+                <span class="hobby-icon">🧩</span>
+                <h3>Puzzles & Strategy Games</h3>
+                <p>
+                    I enjoy challenging my mind with puzzles, strategy games, and brain 
+                    teasers. It's a great way to improve problem-solving skills while 
+                    having fun.
+                </p>
+                <div class="hobby-tags">
+                    <span class="hobby-tag">Chess</span>
+                    <span class="hobby-tag">Crosswords</span>
+                    <span class="hobby-tag">Logic Puzzles</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
